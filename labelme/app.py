@@ -1585,7 +1585,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.fileListWidget.currentRow() != self.imageList.index(filename)
         ):
             self.fileListWidget.setCurrentRow(self.imageList.index(filename))
-            self.fileListWidget.repaint()
+            self.fileListWidget.update()
             return
 
         self.resetState()
@@ -1895,7 +1895,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if current_filename in self.imageList:
             # retain currently selected file
             self.fileListWidget.setCurrentRow(self.imageList.index(current_filename))
-            self.fileListWidget.repaint()
+            self.fileListWidget.update()
 
     def saveFile(self, _value=False):
         assert not self.image.isNull(), "cannot save empty image"
